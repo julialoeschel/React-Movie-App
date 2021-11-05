@@ -1,11 +1,7 @@
 import React from 'react';
 import styles from './Priority.module.css';
 
-type PriorityProps = {
-  priority: number;
-};
-
-function Priority({ priority }: PriorityProps): JSX.Element {
+function Priority(): JSX.Element {
   return (
     <label className={styles.priority} aria-label="Priority">
       Priority
@@ -14,7 +10,7 @@ function Priority({ priority }: PriorityProps): JSX.Element {
         type="number"
         min="1"
         max="5"
-        value={priority}
+        defaultValue="3"
       />
     </label>
   );

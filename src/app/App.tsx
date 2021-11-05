@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-
 import Cards from './components/Cards/Cards';
 import Title from './components/Title/Title';
+import Form from './components/Form/Form';
 
 function App(): JSX.Element {
   const [movies] = useState([
@@ -24,6 +24,7 @@ function App(): JSX.Element {
   return (
     <>
       <Title />
+      <Form />
       {movies.map((movie) => (
         <Cards
           movieTitle={movie.movieTitle}
