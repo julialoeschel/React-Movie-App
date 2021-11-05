@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './components/Button/Button';
 
 import Cards from './components/Cards/Cards';
 import Title from './components/Title/Title';
@@ -24,6 +25,7 @@ function App(): JSX.Element {
   return (
     <>
       <Title />
+
       {movies.map((movie) => (
         <Cards
           movieTitle={movie.movieTitle}
