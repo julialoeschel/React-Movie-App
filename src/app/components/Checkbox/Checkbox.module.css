@@ -1,4 +1,6 @@
 .checkbox {
   font-size: 1rem;
   color: #232946;
+  justify-self: end;
+  transform: translateY(-25px);
 }
