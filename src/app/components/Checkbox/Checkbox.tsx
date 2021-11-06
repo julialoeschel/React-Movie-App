@@ -6,7 +6,6 @@ type CheckboxProps = {
 };
 
 function Checkbox({ movieWatched }: CheckboxProps): JSX.Element {
-  console.log({ movieWatched });
   return (
     <label className={styles.checkbox} aria-label="watched">
       Watched
