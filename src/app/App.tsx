@@ -11,6 +11,7 @@ function App(): JSX.Element {
         'James Bond ist nicht mehr als Geheimagent im Dienst und genießt seinen Ruhestand auf Jamaika. Doch seine Atempause ist nur von kurzer Dauer, denn der CIA-Agent Felix Leiter spürt Bond auf, um ihn um Hilfe zu bitten.',
       moviePriority: 4,
       movieWatched: false,
+      movieId: 99,
     },
     {
       movieTitle: 'Dune',
@@ -18,6 +19,7 @@ function App(): JSX.Element {
         'Feature adaptation of Frank Herbert’s science fiction novel, about the son of a noble family entrusted with the protection of the most valuable asset and most vital element in the galaxy.',
       moviePriority: 2,
       movieWatched: true,
+      movieId: 98,
     },
   ]);
 
@@ -26,10 +28,14 @@ function App(): JSX.Element {
     movieDescription: string;
     moviePriority: number;
     movieWatched: boolean;
+    movieId: number;
   }) {
     const newMovies = [...movies, movie];
     setMovies(newMovies);
     return movies;
+  }
+  function deleteMovie(movieId: number) {
+    setMovies(movies.filter((movie) => movie.movieId !== movieId));
   }
 
   return (
@@ -42,6 +48,8 @@ function App(): JSX.Element {
           movieDescription={movie.movieDescription}
           moviePriority={movie.moviePriority}
           movieWatched={movie.movieWatched}
+          movieId={movie.movieId}
+          onDelete={deleteMovie}
         />
       ))}
     </>

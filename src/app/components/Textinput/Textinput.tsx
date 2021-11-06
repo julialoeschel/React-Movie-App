@@ -4,7 +4,7 @@ import styles from './Textinput.module.css';
 type TextinputProps = {
   labelName: string;
   inputValue: string;
-  setInputValue: Function;
+  setInputValue: (inPutValue: string) => void;
 };
 
 function Textinput({
