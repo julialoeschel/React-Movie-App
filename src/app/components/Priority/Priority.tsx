@@ -3,7 +3,7 @@ import styles from './Priority.module.css';
 
 type PriorityProps = {
   priority: number;
-  setPriority: Function;
+  setPriority: any;
 };
 
 function Priority({ priority, setPriority }: PriorityProps): JSX.Element {

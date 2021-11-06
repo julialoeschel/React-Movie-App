@@ -20,7 +20,7 @@ function Cards({
     <li className={styles.cards}>
       <h2>{movieTitle}</h2>
       <p>{movieDescription}</p>
-      <Priority priority={moviePriority} />
+      <Priority priority={moviePriority} setPriority={null} />
       <Checkbox movieWatched={movieWatched} />
     </li>
   );

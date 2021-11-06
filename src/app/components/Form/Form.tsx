@@ -14,8 +14,8 @@ type FormProps = {
 };
 
 function Form({ onSubmit }: FormProps): JSX.Element {
-  const [title, setTitle] = useState('Hello');
-  const [description, setDescription] = useState('World');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [priority, setPriority] = useState(3);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
