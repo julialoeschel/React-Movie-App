@@ -4,7 +4,7 @@ import Title from './components/Title/Title';
 import Form from './components/Form/Form';
 
 function App(): JSX.Element {
-  const [movies] = useState([
+  const [movies, setMovies] = useState([
     {
       movieTitle: 'James Bond - Keine Zeit zu sterben',
       movieDescription:
@@ -21,10 +21,21 @@ function App(): JSX.Element {
     },
   ]);
 
+  function addMovie(movie: {
+    movieTitle: string;
+    movieDescription: string;
+    moviePriority: number;
+    movieWatched: boolean;
+  }) {
+    const newMovies = [...movies, movie];
+    setMovies(newMovies);
+    return movies;
+  }
+
   return (
     <>
       <Title />
-      <Form />
+      <Form onSubmit={addMovie} />
       {movies.map((movie) => (
         <Cards
           movieTitle={movie.movieTitle}
