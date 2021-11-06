@@ -10,7 +10,7 @@ type FormProps = {
     movieTitle: string;
     movieDescription: string;
     movieWatched: boolean;
-    movieId: number;
+    movieIndex: number;
   }) => void;
 };
 
@@ -18,7 +18,6 @@ function Form({ onSubmit }: FormProps): JSX.Element {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [priority, setPriority] = useState(3);
-  const [id, setId] = useState(0);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -27,12 +26,11 @@ function Form({ onSubmit }: FormProps): JSX.Element {
       movieTitle: title,
       movieDescription: description,
       movieWatched: false,
-      movieId: id,
+      movieIndex: 0,
     });
     setTitle('');
     setDescription('');
     setPriority(3);
-    setId(id + 1);
   }
 
   return (

@@ -11,7 +11,7 @@ function App(): JSX.Element {
         'James Bond ist nicht mehr als Geheimagent im Dienst und genießt seinen Ruhestand auf Jamaika. Doch seine Atempause ist nur von kurzer Dauer, denn der CIA-Agent Felix Leiter spürt Bond auf, um ihn um Hilfe zu bitten.',
       moviePriority: 4,
       movieWatched: false,
-      movieId: 99,
+      movieIndex: 0,
     },
     {
       movieTitle: 'Dune',
@@ -19,7 +19,15 @@ function App(): JSX.Element {
         'Feature adaptation of Frank Herbert’s science fiction novel, about the son of a noble family entrusted with the protection of the most valuable asset and most vital element in the galaxy.',
       moviePriority: 2,
       movieWatched: true,
-      movieId: 98,
+      movieIndex: 0,
+    },
+    {
+      movieTitle: 'Dune 2',
+      movieDescription:
+        'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio voluptatibus suscipit fuga, eos iusto libero natus ab aut fugit minus amet dignissimos quos voluptatum? Modi nulla porro ex architecto praesentium?',
+      moviePriority: 2,
+      movieWatched: true,
+      movieIndex: 0,
     },
   ]);
 
@@ -28,14 +36,14 @@ function App(): JSX.Element {
     movieDescription: string;
     moviePriority: number;
     movieWatched: boolean;
-    movieId: number;
+    movieIndex: number;
   }) {
     const newMovies = [...movies, movie];
     setMovies(newMovies);
     return movies;
   }
-  function deleteMovie(movieId: number) {
-    setMovies(movies.filter((movie) => movie.movieId !== movieId));
+  function deleteMovie(movieIndex: number) {
+    setMovies(movies.filter((movie) => movie.movieIndex !== movieIndex));
   }
 
   return (
@@ -48,8 +56,8 @@ function App(): JSX.Element {
           movieDescription={movie.movieDescription}
           moviePriority={movie.moviePriority}
           movieWatched={movie.movieWatched}
-          movieId={movie.movieId}
           onDelete={deleteMovie}
+          movieIndex={movies.indexOf(movie)}
         />
       ))}
     </>
