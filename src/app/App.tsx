@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Cards from './components/Cards/Cards';
 import Title from './components/Title/Title';
 import Form from './components/Form/Form';
+import Counter from './components/Counter/Counter';
 
 function App(): JSX.Element {
   const [movies, setMovies] = useState([
@@ -27,6 +28,14 @@ function App(): JSX.Element {
       movieWatched: true,
     },
   ]);
+  const [count, setCount] = useState<number>(0);
+
+  function countDecrease() {
+    if (count <= 0) {
+      return;
+    }
+    setCount(count - 1);
+  }
 
   function addMovie(movie: {
     movieTitle: string;
@@ -57,6 +66,11 @@ function App(): JSX.Element {
   return (
     <>
       <Title />
+      <Counter
+        count={count}
+        Decrease={countDecrease}
+        Increase={() => setCount(count + 1)}
+      />
       <Form onSubmit={addMovie} />
       {movies.map((movie, index) => (
         <Cards

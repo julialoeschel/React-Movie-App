@@ -1,8 +1,12 @@
 .form {
+  display: grid;
+  gap: 5px;
+  justify-items: stretch;
   color: #b8c1ec;
   border-color: #eebbc3;
   padding: 10px;
   border-style: solid;
   border-radius: 0.4em;
   margin: 5px;
+  max-width: 500px;
 }

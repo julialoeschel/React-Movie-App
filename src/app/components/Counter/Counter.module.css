@@ -1,0 +1,21 @@
+.counterspan {
+  color: white;
+  padding: 5px;
+}
+
+.counterContainer {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.counterButton {
+  color: #121629;
+  background: #eebbc3;
+  font-size: 0.8em;
+  padding: 0.5em 0.5em;
+  border: none;
+  border-radius: 0.4em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
