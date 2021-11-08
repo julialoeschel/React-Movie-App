@@ -3,7 +3,7 @@ import styles from './Priority.module.css';
 
 type PriorityProps = {
   priority: number;
-  setPriority: (priority: unknown) => void;
+  setPriority: (priority: number) => void;
 };
 
 function Priority({ priority, setPriority }: PriorityProps): JSX.Element {
@@ -15,9 +15,8 @@ function Priority({ priority, setPriority }: PriorityProps): JSX.Element {
         type="number"
         min="1"
         max="5"
-        defaultValue="3"
         value={priority}
-        onChange={(event) => setPriority(event.target.value)}
+        onChange={(event) => setPriority(parseInt(event.target.value))}
       />
     </label>
   );
