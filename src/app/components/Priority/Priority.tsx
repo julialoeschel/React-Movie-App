@@ -15,7 +15,6 @@ function Priority({ priority, setPriority }: PriorityProps): JSX.Element {
         type="number"
         min="1"
         max="5"
-        defaultValue="3"
         value={priority}
         onChange={(event) => setPriority(parseInt(event.target.value))}
       />

@@ -10,7 +10,6 @@ type FormProps = {
     movieTitle: string;
     movieDescription: string;
     movieWatched: boolean;
-    movieIndex: number;
   }) => void;
 };
 
@@ -26,7 +25,6 @@ function Form({ onSubmit }: FormProps): JSX.Element {
       movieTitle: title,
       movieDescription: description,
       movieWatched: false,
-      movieIndex: 0,
     });
     setTitle('');
     setDescription('');
