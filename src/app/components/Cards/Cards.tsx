@@ -10,6 +10,7 @@ type CardsProps = {
   movieWatched: boolean;
   movieIndex: number;
   onDelete: (movieIndex: number) => void;
+  updatePriority: (movieIndex: number, priority: number) => void;
 };
 
 function Cards({
@@ -19,12 +20,17 @@ function Cards({
   movieWatched,
   onDelete,
   movieIndex,
+  updatePriority,
 }: CardsProps): JSX.Element {
+  function handleUpdatePriority(priority: number) {
+    updatePriority(movieIndex, priority);
+  }
+
   return (
     <li className={styles.cards}>
       <h2>{movieTitle}</h2>
       <p>{movieDescription}</p>
-      <Priority priority={moviePriority} setPriority={moviePriority} />
+      <Priority priority={moviePriority} setPriority={handleUpdatePriority} />
       <Checkbox movieWatched={movieWatched} />
       <svg
         onClick={() => console.log(onDelete(movieIndex))}

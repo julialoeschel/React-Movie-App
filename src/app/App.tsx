@@ -19,7 +19,7 @@ function App(): JSX.Element {
         'Feature adaptation of Frank Herbert’s science fiction novel, about the son of a noble family entrusted with the protection of the most valuable asset and most vital element in the galaxy.',
       moviePriority: 2,
       movieWatched: true,
-      movieIndex: 0,
+      movieIndex: 1,
     },
     {
       movieTitle: 'Dune 2',
@@ -27,7 +27,7 @@ function App(): JSX.Element {
         'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio voluptatibus suscipit fuga, eos iusto libero natus ab aut fugit minus amet dignissimos quos voluptatum? Modi nulla porro ex architecto praesentium?',
       moviePriority: 2,
       movieWatched: true,
-      movieIndex: 0,
+      movieIndex: 2,
     },
   ]);
 
@@ -40,10 +40,22 @@ function App(): JSX.Element {
   }) {
     const newMovies = [...movies, movie];
     setMovies(newMovies);
-    return movies;
   }
+
   function deleteMovie(movieIndex: number) {
     setMovies(movies.filter((movie) => movie.movieIndex !== movieIndex));
+  }
+
+  function handleUpdatePriority(movieIndex: number, priority: number) {
+    const newMovies = [...movies];
+    const foundMovie = newMovies.find(
+      (movie) => movie.movieIndex === movieIndex
+    );
+    if (foundMovie) {
+      foundMovie.moviePriority = priority;
+      newMovies.splice(movieIndex, 1, foundMovie);
+      setMovies(newMovies);
+    }
   }
 
   return (
@@ -58,6 +70,7 @@ function App(): JSX.Element {
           movieWatched={movie.movieWatched}
           onDelete={deleteMovie}
           movieIndex={movies.indexOf(movie)}
+          updatePriority={handleUpdatePriority}
         />
       ))}
     </>
